@@ -986,8 +986,9 @@ class SCCReader(BaseReader):
                              int(timesplit[2]) +
                              int(timesplit[3]) / 30.0)
 
-        seconds = timestamp_seconds * seconds_per_timestamp_second
-        microseconds = seconds * 1000 * 1000 - self.offset
+        microseconds = timestamp_seconds * 1000 * 1000
+        microseconds -= self.offset
+        microseconds *= seconds_per_timestamp_second
 
         if microseconds < 0:
             microseconds = 0
