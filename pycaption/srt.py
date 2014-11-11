@@ -11,8 +11,7 @@ class SRTReader(BaseReader):
             return False
         if lines[0].isdigit() and '-->' in lines[1]:
             return True
-        else:
-            return False
+        return False
 
     def read(self, content, lang='en-US'):
         content = force_byte_string(content)
